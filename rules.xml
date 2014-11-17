@@ -33,12 +33,32 @@
         <drop
             css:content="#portal-header #portal-globalnav" 
         />
-
+        
         <replace 
-            css:theme-children="#main" 
-            css:content-children="#portal-columns #portal-column-content" 
+            css:theme-children="#center-column"
+            css:content-children="#portal-column-content" 
+        />   
+        
+        <replace 
+            css:theme-children="#left-column" 
+            css:content-children="#portal-column-one" 
         />
-
+        
+        <replace 
+            css:theme-children="#right-column" 
+            css:content-children="#portal-column-two" 
+        />       
+        
+        <drop 
+            css:theme="#left-column" 
+            css:if-not-content="#portal-column-one"    
+        />
+        
+        <drop 
+            css:theme="#right-column" 
+            css:if-not-content="#portal-column-two"
+        />
+        
         <replace 
             css:theme-children="#footer-wrapper #portal-doormat-wrapper" 
             css:content="#portal-footer-wrapper #doormat-container" 
