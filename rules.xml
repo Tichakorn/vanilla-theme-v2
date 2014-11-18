@@ -30,6 +30,16 @@
             method="raw"
         />
 
+        <replace 
+            css:theme-children="#move-breadcrumbs" 
+            css:content="#portal-breadcrumbs" 
+            method="raw"
+        />
+
+        <drop
+            css:content="#portal-breadcrumbs" 
+        />
+
         <drop
             css:content="#portal-header #portal-globalnav" 
         />
