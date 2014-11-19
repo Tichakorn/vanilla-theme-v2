@@ -25,7 +25,7 @@ body{
 				background-color:transparent;
 				.navbar-collapse{
 					padding:0;
-					#portal-globalnav{
+					.navbar-nav{
 						margin:0;
 					}
 				}
@@ -44,6 +44,13 @@ body{
 			margin-top:1em;
 		}
 		#main{
+			.listing.detail{
+				#listing-info{
+					float:right;
+				}
+				#listing-images{
+				}
+			}
 			.portletWrapper{
 				.portlet {
 					.portletHeader{
@@ -137,10 +144,17 @@ body{
 				}
 				.span6{
 					width:48%;
-					margin:0 1% !important
 				}
 				.span9{
 					width:74%;
+				}
+				.listing.detail{
+					#listing-info{
+						width:45%;
+					}
+					#listing-images{
+
+					}
 				}
 				.listing-summary{
 					#search-form{
@@ -167,16 +181,25 @@ body{
 					width:25%;
 					margin-right:1%;
 				}
-				#right-column.span3{
+				#right-column.span3{ 
 					width:25%;
 					margin-left:1%;
 				}
 				.span6{
 					width:48%;
-					margin:0 1% !important
 				}
 				.span9{
 					width:74%;
+				}
+				.listing.detail{
+					#listing-info{
+						margin-top: 440px;
+    					width: 100%;
+					}
+					#listing-images{
+						position: absolute;
+    					width: 100%;
+					}
 				}
 				.listing-summary{
 					#search-form{
@@ -209,10 +232,19 @@ body{
 				}
 				.span6{
 					width:48%;
-					margin:0 1% !important
 				}
 				.span9{
 					width:74%;
+				}
+				.listing.detail{
+					#listing-info{
+						margin-top: 440px;
+    					width: 100%;
+					}
+					#listing-images{
+						position: absolute;
+    					width: 100%;
+					}
 				}
 				.listing-summary{
 					#search-form{
@@ -244,6 +276,16 @@ body{
 				}
 				.span9{
 					width:100%;
+				}
+				.listing.detail{
+					#listing-info{
+						margin-top: 440px;
+    					width: 100%;
+					}
+					#listing-images{
+						position: absolute;
+    					width: 100%;
+					}
 				}
 				.listing-summary{
 					#search-form{
@@ -281,6 +323,16 @@ body{
 				.span9{
 					width:100%;
 				}
+				.listing.detail{
+					#listing-info{
+						margin-top: 440px;
+    					width: 100%;
+					}
+					#listing-images{
+						position: absolute;
+    					width: 100%;
+					}
+				}
 				.listing-summary{
 					#search-form{
 						form{ 
@@ -317,6 +369,16 @@ body{
 				.span9{
 					width:100%;
 				}
+				.listing.detail{
+					#listing-info{
+						margin-top: 440px;
+    					width: 100%;
+					}
+					#listing-images{
+						position: absolute;
+    					width: 100%;
+					}
+				}
 				.listing-summary{
 					#search-form{
 						form{ 
@@ -343,6 +405,19 @@ body{
 		.container{
 			width:100%;
 			padding:0;
+			#fullscreen-nav{
+				.navbar {
+					.navbar-collapse{
+						border:0 none;
+						.navbar-nav{
+							margin:0;
+							li{
+								width:100%;
+							}
+						}
+					}
+				}
+			}
 			#main{
 	        	.span3{
 					width:100%;
@@ -352,6 +427,16 @@ body{
 				}
 				.span9{
 					width:100%;
+				}
+				.listing.detail{
+					#listing-info{
+						margin-top: 440px;
+    					width: 100%;
+					}
+					#listing-images{
+						position: absolute;
+    					width: 100%;
+					}
 				}
 				.listing-summary{
 					#search-form{
@@ -379,6 +464,19 @@ body{
 		.container{
 			width:100%;
 			padding:0;
+			#fullscreen-nav{
+				.navbar {
+					.navbar-collapse{
+						border:0 none;
+						.navbar-nav{
+							margin:0;
+							li{
+								width:100%;
+							}
+						}
+					}
+				}
+			}
 			#main{
 	        	.span3{
 					width:100%;
@@ -388,6 +486,16 @@ body{
 				}
 				.span9{
 					width:100%;
+				}
+				.listing.detail{
+					#listing-info{
+						margin-top: 440px;
+    					width: 100%;
+					}
+					#listing-images{
+						position: absolute;
+    					width: 100%;
+					}
 				}
 				.listing-summary{
 					#search-form{
@@ -415,6 +523,19 @@ body{
 		.container{
 			width:100%;
 			padding:0;
+			#fullscreen-nav{
+				.navbar {
+					.navbar-collapse{
+						border:0 none;
+						.navbar-nav{
+							margin:0;
+							li{
+								width:100%;
+							}
+						}
+					}
+				}
+			}
 			#main{
 	        	.span3{
 					width:100%;
@@ -424,6 +545,16 @@ body{
 				}
 				.span9{
 					width:100%;
+				}
+				.listing.detail{
+					#listing-info{
+						margin-top: 440px;
+    					width: 100%;
+					}
+					#listing-images{
+						position: absolute;
+    					width: 100%;
+					}
 				}
 				.listing-summary{
 					#search-form{

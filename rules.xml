@@ -26,7 +26,7 @@
 
         <replace 
             css:theme-children="ul.nav" 
-            css:content="#portal-globalnav" 
+            css:content="#portal-globalnav li" 
             method="raw"
         />
 
@@ -92,11 +92,9 @@
         <!-- merge classes from Plone body with theme body -->
         <merge attributes="class" css:theme="body" css:content="body" />
 
-        <!-- Copy script tags from Plone head to end of body -->
-        <after css:theme-children="html body" css:content="html head script" />
-
         <!-- Insert your own rules here -->
-
+        <after css:theme="meta[http-equiv='X-UA-Compatible']"
+        content="/html/head/link | /html/head/style | /html/head/script | /html/head/meta" />
     </rules>
 
 </rules>
