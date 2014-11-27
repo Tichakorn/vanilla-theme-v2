@@ -7,31 +7,28 @@
         
 	    <title></title>
         <link rel="stylesheet" href="stylesheets/screen.css"/>
-        <link rel="stylesheet" href="stylesheets/bootstrap.min.css"/>
-        <link rel="stylesheet" href="stylesheets/bootstrap-responsive.min.css"/>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css" media="screen"/>
 	    <link rel="stylesheet" href="stylesheets/ie.css"/>
 	    <link rel="stylesheet" href="stylesheets/print.css"/>
 	    <link rel="stylesheet" href="stylesheets/index.css"/>
         
-        <script type="text/javascript">
-            jq=$;   
-        </script>
-	    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script src="js/modernizr-2.0.6.min.js"></script>
 	</head>
 	<body>
-		<div id="globlewrapper" class="container">
+		<div id="globlewrapper" class="container-fluid">
 			<div id="header-wrapper" class="row"></div>
 			<div id="fullscreen-nav" class="row">
 				<div class="navbar navbar-default">
-					<div class="navbar-header">
-						<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#id_nav1">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					</div>
-					<div class="collapse navbar-collapse" id="id_nav1">
+					<a class="btn btn-navbar" data-toggle="collapse"
+                        data-target="#id_nav1">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+					<div class="nav-collapse" id="id_nav1">
 						<ul class="nav navbar-nav"></ul>
 					</div>
 				</div>
@@ -45,8 +42,6 @@
                 <div id="right-column" class="span3"  ></div> 
 			</div>
 			<div id="footer-wrapper" class="row">
-                <div id="portal-doormat-wrapper"></div>
-    		    <div id="portal-colophon-wrapper"></div>
 			</div>
 		</div>
         <div id="site-scripts"></div>

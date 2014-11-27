@@ -9,6 +9,12 @@
 
         <theme href="index.html" />
 
+        <copy
+            attributes="class"
+            css:content="body"
+            css:theme="body"
+        />
+        
         <drop
             css:content="#viewlet-above-content .carousel" 
         />
@@ -18,15 +24,15 @@
             css:content="#portal-top #portal-header" 
         />
 
-        <replace 
-            css:theme-children="#fullscreen-carousel" 
-            css:content=".carousel" 
+        <append 
+            css:content="#viewlet-above-content > div.carousel" 
+            css:theme="#fullscreen-carousel"  
             method="raw"
         />
 
         <replace 
             css:theme-children="ul.nav" 
-            css:content="#portal-globalnav li" 
+            css:content-children="#portal-globalnav" 
             method="raw"
         />
 
@@ -70,13 +76,8 @@
         />
         
         <replace 
-            css:theme-children="#footer-wrapper #portal-doormat-wrapper" 
-            css:content="#portal-footer-wrapper #doormat-container" 
-        />
-        
-        <replace 
-            css:theme-children="#footer-wrapper #portal-colophon-wrapper" 
-            css:content="#portal-footer-wrapper #portal-colophon" 
+            css:theme-children="#footer-wrapper" 
+            css:content-children="#portal-footer-wrapper" 
         />
         
         <!-- Replace title with Plone's page title  -->
@@ -85,16 +86,14 @@
         <!-- Copy base tag from Plone -->
         <before css:theme-children="html head" css:content="html head base" />
 
-        <!-- Copy link, style, meta tags from Plone head -->
-        <after css:theme-children="html head"
-               content="/html/head/link | /html/head/style | /html/head/meta" />
-
-        <!-- merge classes from Plone body with theme body -->
-        <merge attributes="class" css:theme="body" css:content="body" />
-
         <!-- Insert your own rules here -->
+        
         <after css:theme="meta[http-equiv='X-UA-Compatible']"
         content="/html/head/link | /html/head/style | /html/head/script | /html/head/meta" />
+        
+        <append css:theme="#footer-wrapper" css:content="div#visual-portal-wrapper > div.row > script"/>
+
+        <append css:theme="#site-scripts" css:content="#portal-footer-wrapper > div > script"/>
     </rules>
 
 </rules>
