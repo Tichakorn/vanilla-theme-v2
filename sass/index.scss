@@ -124,6 +124,12 @@ $no-color:transparent;
 }
 
 
+@mixin portalheader-style{
+	font-size: $font-header;
+	background-color:transparent;
+}
+
+
 @mixin footer-wrapper-when-fullscreen{
 	width:100%;
 }
@@ -223,6 +229,7 @@ $no-color:transparent;
 }
 @mixin carousel-pager-a-style{
 	background-color: #7e8083;
+	background-image: none;
 	border: 1px solid #ebebeb;
 	height: 15px;
 	padding: 0;
@@ -288,6 +295,9 @@ $no-color:transparent;
 }
 
 body{
+	.collapse{
+		height:auto;
+	}
 	.galleria-container img{
 		width:auto;
 		height:auto;
@@ -354,13 +364,13 @@ body{
 			#searchGadget, .LSBox input.searchButton{
 				margin:0;
 			}
+			.searchButton{
+				padding: 2px;
+			}
 			.LSBox {
 				.searchSection {
 				   display: none;
 				}
-			}
-			#portal-personaltools{
-				right:6%;
 			}
 			#portal-languageselector{
 				position: absolute;
@@ -507,7 +517,7 @@ body{
 				}
 			}
 			label{
-				display:inline;
+				display:inline-block;
 				span{
 					font-weight: normal;
 					text-shadow: unset;
@@ -547,13 +557,41 @@ body{
 				span{
 					@include span-style;
 				}
-				.listing-collection-tile .collection-item {
-				    float: left;
-				    margin-bottom: 1.5em;
-				    overflow: hidden;
+				.listing-collection-tile{
+					.collection-item {
+					    float: left;
+					    margin-bottom: 1.5em;
+					    overflow: hidden;
+					    position:relative;
+					}
+					.tile-footer {
+					    bottom: 0;
+					    position: absolute;
+					    right: 0;
+					    text-align: right;
+					}
+				    h2{
+				    	display:none;
+				    	position:absolute;
+				    	margin: 5px;
+					    top: 5px;
+					    padding:5px;
+				    	a,a:hover{
+				    		color:#fff !important;
+				    	}
+				    }
 				    .item{
 				    	width:100%;
 				    	float:left;
+				    }
+				    figure{
+				    	min-height:168px;
+				    }
+				}
+				.listing-collection-tile .collection-item:hover {
+				    h2{
+				    	display:block;
+				    	background-color: rgba(0, 0, 0, 0.5);
 				    }
 				}
 				.listing-search-tile{
@@ -682,7 +720,7 @@ body{
 				}
 				.portlet {
 					.portletHeader{
-						font-size: $font-header;
+						@include portalheader-style;
 					}
 					.portletItem{
 						#form{
@@ -697,7 +735,12 @@ body{
 									float:right;
 									clear:none;
 								}
-								.text-widget,.select-widget{
+								.text-widget{
+									padding-left: 0;
+								    padding-right: 0;
+								    width: 99%;
+								}
+								.select-widget{
 									width:100%;
 								}
 								.value-range-widget{
@@ -806,6 +849,9 @@ body{
 }
 @media (min-width: 1200px){
 	body{
+		#portal-personaltools{
+			right:6%;
+		}
 		.container{
 			width:1080px;
 		}
@@ -833,8 +879,8 @@ body{
 			#main{
 				.listing-collection-tile .collection-item {
 				    margin-right: 3%;
-				    max-height: 550px;
-				    min-height: 550px;
+				    max-height: 390px;
+				    min-height: 390px;
 				    width: 30%;
 				}
 				#left-column.span3{
@@ -884,6 +930,9 @@ body{
 }
 @media (min-width: 980px) and (max-width:1199px){
 	body{
+		#portal-personaltools{
+			right:7.3%;
+		}
 		.container{
 			width:870px;
 		}
@@ -911,8 +960,8 @@ body{
 			#main{
 				.listing-collection-tile .collection-item {
 				    margin-right: 3%;
-				    max-height: 550px;
-				    min-height: 550px;
+				    max-height: 390px;
+				    min-height: 390px;
 				    width: 30%;
 				}
 				#left-column.span3{
@@ -964,6 +1013,9 @@ body{
 }
 @media (min-width: 768px) and (max-width: 979px) {
 	body{
+		#portal-personaltools{
+			right:9.4%;
+		}
 		.container{
 			width:680px;
 		}
@@ -991,8 +1043,8 @@ body{
 			#main{
 				.listing-collection-tile .collection-item {
 				    margin-right: 3%;
-				    max-height: 550px;
-				    min-height: 550px;
+				    max-height: 390px;
+				    min-height: 390px;
 				    width: 47%;
 				}
 				#left-column.span3{
@@ -1044,6 +1096,9 @@ body{
 }
 @media (min-width: 600px) and (max-width: 767px){
 	body{
+		#portal-personaltools{
+			margin-right: 65px;
+		}
 		.container,.container-fluid{
 			width:100%; 
 			padding:0;
@@ -1065,8 +1120,8 @@ body{
 			#main{
 				.listing-collection-tile .collection-item {
 				    margin-right: 3%;
-				    max-height: 550px;
-				    min-height: 550px;
+				    max-height: 390px;
+				    min-height: 390px;
 				    width: 47%;
 				}
 				@include main-when-fullscreen;
@@ -1119,6 +1174,9 @@ body{
 } 
 @media (min-width: 481px) and (max-width: 599px){
 	body{
+		#portal-personaltools{
+			margin-right: 65px;
+		}
 		.container,.container-fluid{
 			width:100%;
 			padding:0;
@@ -1140,8 +1198,8 @@ body{
 			#main{
 				.listing-collection-tile .collection-item {
 				    margin-right: 3%;
-				    max-height: 550px;
-				    min-height: 550px;
+				    max-height: 390px;
+				    min-height: 390px;
 				    width: 47%;
 				}
 				@include main-when-fullscreen;
@@ -1194,6 +1252,9 @@ body{
 }
 @media (min-width: 401px) and (max-width: 480px){
 	body{
+		#portal-personaltools{
+			margin-right: 65px;
+		}
 		.container,.container-fluid{
 			width:100%;
 			padding:0;
@@ -1266,6 +1327,9 @@ body{
 }
 @media (min-width: 321px) and (max-width: 400px){
 	body{
+		#portal-personaltools{
+			margin-right: 65px;
+		}
 		.container,.container-fluid{
 			width:100%;
 			padding:0;
@@ -1349,6 +1413,9 @@ body{
 }
 @media (min-width: 241px) and (max-width: 320px){
 	body{
+		#portal-personaltools{
+			margin-right: 65px;
+		}
 		.container,.container-fluid{
 			width:100%;
 			padding:0;
@@ -1432,6 +1499,9 @@ body{
 }
 @media (max-width: 240px) {
 	body{
+		#portal-personaltools{
+			margin-right: 65px;
+		}
 		.container,.container-fluid{
 			width:100%;
 			padding:0;
