@@ -10,11 +10,11 @@ $font-header6:.75em;
 $font-p:1em;
 $font-a:1em;
 $font-span:1em;
-
+ 
 $no-color:transparent;
 
 @mixin container-fluid-header-wrapper-when-min-screen-1200px{
-    width:1080px;
+	width:1080px;
 }
 @mixin container-fluid-nav-when-min-screen-1200px{
 	width:1080px;
@@ -361,6 +361,24 @@ body{
 		}
 		#header-wrapper{
 			@include header-warpper-style;
+			.hiddenStructure{
+				display:inline-block;
+			}
+			.socialheader.toolkit{
+				display: inline-block;
+			    margin-left: 5%;
+			    width: 50%;
+				.site_contact_email{
+					display: block;
+				    float: left;
+				    margin-left: 5%;
+				}
+				.site_contact_phone{
+					display: block;
+				    float: left;
+				    margin-left: 5%;
+				}
+			}
 			#searchGadget, .LSBox input.searchButton{
 				margin:0;
 			}
