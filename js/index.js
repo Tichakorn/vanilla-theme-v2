@@ -8,6 +8,16 @@ function responsive_carousel(){
     });
 }
 
+function normal_screen_porlet(){
+    $('#center-column').insertAfter($('#left-column'))
+}
+
+function small_screen_porlet(){
+    $('#left-column').insertAfter($('#center-column'))
+}
+
+
+
 $(document).ready(function () {
     if(($('#left-column').length>0)&&($('#right-column').length>0)){ 
         $( "#center-column" ).addClass( "span6" );
@@ -32,6 +42,24 @@ $(document).ready(function () {
     $( window ).load(function() {
         if($('#fullscreen-carousel .carousel').length>0){
             responsive_carousel();
+        }
+    });
+    
+    $(window).resize(function(){
+        if ($(window).width() < 769) {
+            small_screen_porlet();
+        }
+        else{
+            normal_screen_porlet();
+        }
+    });
+    
+    $(window).load(function(){
+        if ($(window).width() < 769) {
+            small_screen_porlet();
+        }
+        else{
+            normal_screen_porlet();
         }
     });
 });

@@ -14,7 +14,7 @@ $font-span:1em;
 $no-color:transparent;
 
 @mixin container-fluid-header-wrapper-when-min-screen-1200px{
-	width:1080px;
+    width:1080px;
 }
 @mixin container-fluid-nav-when-min-screen-1200px{
 	width:1080px;
@@ -127,6 +127,11 @@ $no-color:transparent;
 @mixin portalheader-style{
 	font-size: $font-header;
 	background-color:transparent;
+	padding:1%;
+}
+@mixin portalitem-style{
+	padding:1%;
+	margin:0;
 }
 
 
@@ -193,8 +198,13 @@ $no-color:transparent;
 	background-color: #cccccc;
   	border: 0 none;
 }
+@mixin navbar-li-select-style{
+	background-color: #cccccc;
+  	border: 0 none;
+}
 @mixin navbar-li-a-style{
 	color:$font-color-black;
+	padding:10px;
 }
 
 
@@ -364,30 +374,23 @@ body{
 			.hiddenStructure{
 				display:inline-block;
 			}
+			#portal-logo{
+				float:left;
+			}
 			.socialheader.toolkit{
-				display: inline-block;
+				float: right;
 			    margin-left: 5%;
-			    width: 50%;
+			    margin-top: 4%;
+			    width: 58%;
 				.site_contact_email{
 					display: block;
 				    float: left;
-				    margin-left: 5%;
+				    width: 50%;
 				}
 				.site_contact_phone{
 					display: block;
 				    float: left;
-				    margin-left: 5%;
-				}
-			}
-			#searchGadget, .LSBox input.searchButton{
-				margin:0;
-			}
-			.searchButton{
-				padding: 2px;
-			}
-			.LSBox {
-				.searchSection {
-				   display: none;
+				    width: 50%;
 				}
 			}
 			#portal-languageselector{
@@ -418,7 +421,6 @@ body{
 				.nav-collapse{
 					padding:0;
 					float:left;
-					width:100%;
 					.navbar-nav{
 						margin:0;
 						li{
@@ -457,12 +459,36 @@ body{
   								}
   							}
   						}
+  						li.selected{
+  							@include navbar-li-select-style;
+  						}
 					} 
+				}
+				#portal-searchbox{
+					margin-bottom:0;
+					margin-top: 11px;
+					text-align: right;
+					form{
+						margin:0;
+						#searchGadget, .LSBox input.searchButton{
+							margin:0;
+						}
+						.searchButton{
+							padding: 2px;
+						}
+						.LSBox {
+							.searchSection {
+						   		display: none;
+							}
+						}
+					}
 				}
 			}
 		}
 		#fullscreen-carousel{
-			.carousel-banners{
+			.carousel{
+				margin-bottom:0;
+				.carousel-banners{
 				position: relative;
 				max-width: 100%;
 				.carousel-banner{
@@ -481,6 +507,7 @@ body{
 					}
 				}
 			}
+		}
 			.carousel-pager{
 				@include carousel-pager-style; 
 				a{
@@ -502,12 +529,6 @@ body{
 			}
 		}
 		#main{
-			.galleria-thumbnails .galleria-image{
-				@include carousel-pager-a-style;
-			}
-			.galleria-thumbnails .galleria-image.active{
-				@include carousel-pager-a-active-style;
-			}
 			#edit-bar{
 				.actionMenuSelected{
 					span{
@@ -741,6 +762,7 @@ body{
 						@include portalheader-style;
 					}
 					.portletItem{
+						@include portalitem-style;
 						#form{
 							.form-rows{
 								#formfield-form-widgets-price_min{
@@ -846,6 +868,9 @@ body{
 		#footer-wrapper{
 			#doormat-container{
 					@include doormat-container-style;
+					.doormatColumn{
+						margin:0 1%;
+					}
 			}
 			#portal-colophon{
 				@include portal-colophon-wrapper-style;
@@ -867,6 +892,12 @@ body{
 }
 @media (min-width: 1200px){
 	body{
+		.nav-collapse{
+			width:78%;
+		}
+		#portal-searchbox{
+		 	width:22%;
+		}
 		#portal-personaltools{
 			right:6%;
 		}
@@ -948,6 +979,12 @@ body{
 }
 @media (min-width: 980px) and (max-width:1199px){
 	body{
+		.nav-collapse{
+			width:78%;
+		}
+		#portal-searchbox{
+		 	width:22%;
+		}
 		#portal-personaltools{
 			right:7.3%;
 		}
@@ -1031,6 +1068,12 @@ body{
 }
 @media (min-width: 768px) and (max-width: 979px) {
 	body{
+		.socialheader.toolkit{
+			display:none;
+		}
+		.nav-collapse{
+			width:100%;
+		}
 		#portal-personaltools{
 			right:9.4%;
 		}
@@ -1114,6 +1157,12 @@ body{
 }
 @media (min-width: 600px) and (max-width: 767px){
 	body{
+		.socialheader.toolkit{
+			display:none;
+		}
+		.nav-collapse{
+			width:100%;
+		}
 		#portal-personaltools{
 			margin-right: 65px;
 		}
@@ -1144,7 +1193,7 @@ body{
 				}
 				@include main-when-fullscreen;
 	        	.span3{
-					width:100%;
+					width:50%;
 				}
 				.span6{
 					width:100%;
@@ -1192,6 +1241,12 @@ body{
 } 
 @media (min-width: 481px) and (max-width: 599px){
 	body{
+		.socialheader.toolkit{
+			display:none;
+		}
+		.nav-collapse{
+			width:100%;
+		}
 		#portal-personaltools{
 			margin-right: 65px;
 		}
@@ -1222,7 +1277,7 @@ body{
 				}
 				@include main-when-fullscreen;
 	        	.span3{
-					width:100%;
+					width:50%;
 				}
 				.span6{
 					width:100%;
@@ -1270,6 +1325,16 @@ body{
 }
 @media (min-width: 401px) and (max-width: 480px){
 	body{
+		#portal-logo{
+			display: block;
+			margin-left:8px;
+		}
+		.socialheader.toolkit{
+			display:none;
+		}
+		.nav-collapse{
+			width:100%;
+		}
 		#portal-personaltools{
 			margin-right: 65px;
 		}
@@ -1345,6 +1410,16 @@ body{
 }
 @media (min-width: 321px) and (max-width: 400px){
 	body{
+		#portal-logo{
+			display: block;
+			margin-left:8px;
+		}
+		.socialheader.toolkit{
+			display:none;
+		}
+		.nav-collapse{
+			width:100%;
+		}
 		#portal-personaltools{
 			margin-right: 65px;
 		}
@@ -1431,6 +1506,16 @@ body{
 }
 @media (min-width: 241px) and (max-width: 320px){
 	body{
+		#portal-logo{
+			display: block;
+			margin-left:8px;
+		}
+		.socialheader.toolkit{
+			display:none;
+		}
+		.nav-collapse{
+			width:100%;
+		}
 		#portal-personaltools{
 			margin-right: 65px;
 		}
@@ -1517,6 +1602,16 @@ body{
 }
 @media (max-width: 240px) {
 	body{
+		#portal-logo{
+			display: block;
+			margin-left:8px;
+		}
+		.socialheader.toolkit{
+			display:none;
+		}
+		.nav-collapse{
+			width:100%;
+		}
 		#portal-personaltools{
 			margin-right: 65px;
 		}

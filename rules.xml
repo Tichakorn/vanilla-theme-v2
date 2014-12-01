@@ -16,6 +16,16 @@
         />
         
         <drop
+            css:content="#portal-searchbox" 
+        />
+        
+        <append 
+            css:content="#portal-searchbox"
+            css:theme=".navbar"
+            method="raw"
+        />
+        
+        <drop
             css:content="#viewlet-above-content .carousel" 
         />
 
