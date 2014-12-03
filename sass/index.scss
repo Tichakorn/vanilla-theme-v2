@@ -596,6 +596,18 @@ body{
 				span{
 					@include span-style;
 				}
+				.option{
+					input {
+						display: inline-block;
+    					position: absolute;
+    				}
+					span{
+						display: inline-block;
+						padding-left: 18px;
+					    white-space: unset;
+					    width: 90%;
+					}
+				}
 				.listing-collection-tile{
 					.collection-item {
 					    float: left;
@@ -958,7 +970,7 @@ body{
 					#search-form{
 						form{ 
 							span.option{
-								width:32%;
+								width:29%;
 							}
 							.value-range-widget{
 								width:49%;
@@ -1047,7 +1059,7 @@ body{
 					#search-form{
 						form{ 
 							span.option{
-								width:32%;
+								width:29%;
 							}
 							.value-range-widget{
 								width:49%;
@@ -1066,7 +1078,7 @@ body{
 		}
 	}
 }
-@media (min-width: 768px) and (max-width: 979px) {
+@media (min-width: 769px) and (max-width: 979px) {
 	body{
 		.socialheader.toolkit{
 			display:none;
@@ -1155,7 +1167,7 @@ body{
 		}
 	}
 }
-@media (min-width: 600px) and (max-width: 767px){
+@media (min-width: 600px) and (max-width: 768px){
 	body{
 		.socialheader.toolkit{
 			display:none;

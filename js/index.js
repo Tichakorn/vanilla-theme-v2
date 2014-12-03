@@ -46,7 +46,7 @@ $(document).ready(function () {
     });
     
     $(window).resize(function(){
-        if ($(window).width() < 769) {
+        if ($(window).width() < 770) {
             small_screen_porlet();
         }
         else{
@@ -55,7 +55,7 @@ $(document).ready(function () {
     });
     
     $(window).load(function(){
-        if ($(window).width() < 769) {
+        if ($(window).width() < 770) {
             small_screen_porlet();
         }
         else{
