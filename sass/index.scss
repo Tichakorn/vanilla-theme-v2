@@ -142,41 +142,52 @@ $no-color:transparent;
 @mixin h1-style{
 	color:$font-color-black;
 	font-size:$font-header1;
+	line-height:normal;
 }
 @mixin h2-style{
 	color:$font-color-black;
 	font-size:$font-header2;
+	line-height:normal;
 }
 @mixin h3-style{
 	color:$font-color-black;
 	font-size:$font-header3;
+	line-height:normal;
 }
 @mixin h4-style{
 	color:$font-color-black;
 	font-size:$font-header4;
+	line-height:normal;
 }
 @mixin h5-style{
 	color:$font-color-black;
 	font-size:$font-header5;
+	line-height:normal;
 }
 @mixin h6-style{
 	color:$font-color-black;
 	font-size:$font-header6;
+	line-height:normal;
 }
 @mixin p-style{
 	color:$font-color-black;
 	font-size:$font-p;
+	line-height:normal;
 }
 @mixin span-style{
 	color:$font-color-black;
 	font-size:$font-span;
+	line-height:normal;
 }
 @mixin a-style{
 	color:$font-color-black;
 	font-size:$font-a;
+	line-height:normal;
 }
 @mixin a-hover-style{
 	font-size:$font-a;
+	text-decoration:none;
+	line-height:normal;
 }
 
 
@@ -195,21 +206,23 @@ $no-color:transparent;
   	position: relative;
 }
 @mixin navbar-li-hover-style{
-	background-color: #cccccc;
+	background-color: #333;
   	border: 0 none;
 }
 @mixin navbar-li-select-style{
-	background-color: #cccccc;
+	background-color: #333;
   	border: 0 none;
+}
+@mixin navbar-li-select-a-style{
+	color:#fff;
 }
 @mixin navbar-li-a-style{
 	color:$font-color-black;
 	padding:10px;
 }
-
-
 @mixin navbar-li-hover-a-style{
-	color:$font-color-black;
+	color:#fff;
+	background-color:transparent;
 }
 @mixin navbar-li-hover-submenu-style{
 	display:block;
@@ -248,6 +261,26 @@ $no-color:transparent;
     color: transparent !important;
     display: inline-block;
 }
+@mixin carousel-pager-style-when-mobile-screen{
+	bottom: 0;
+    position: absolute;
+    width: 100%;
+    background-color:transparent;
+    height: 15px;
+    margin: 0 auto;
+    text-align: center;
+}
+@mixin carousel-pager-a-style-when-mobile-screen{
+	background-color: #7e8083;
+	background-image: none;
+	border: 1px solid #ebebeb;
+	height: 10px;
+	padding: 0;
+	width: 10px;
+	border-radius: 50%;
+    color: transparent !important;
+    display: inline-block;
+}
 @mixin carousel-pager-a-active-style{
 	background-color: #ebebeb;
 }
@@ -260,6 +293,7 @@ $no-color:transparent;
     left: auto;
     right: 0;
     width: auto;
+    padding: 1%;
 }
 @mixin carousel-text-span-style{
 	color:#fff;
@@ -305,6 +339,7 @@ $no-color:transparent;
 }
 
 body{
+	font-size:16px;
 	.collapse{
 		height:auto;
 	}
@@ -345,7 +380,7 @@ body{
 	p{
 		@include p-style;
 	}
-	a{
+	a,a:link, a:visited{
 		@include a-style;
 	}
 	a:hover{
@@ -380,7 +415,7 @@ body{
 			.socialheader.toolkit{
 				float: right;
 			    margin-left: 5%;
-			    margin-top: 4%;
+			    margin-top: 1%;
 			    width: 58%;
 				.site_contact_email{
 					display: block;
@@ -461,6 +496,9 @@ body{
   						}
   						li.selected{
   							@include navbar-li-select-style;
+  							a{
+  								@include navbar-li-select-a-style;
+  							}
   						}
 					} 
 				}
@@ -501,22 +539,14 @@ body{
 					}
 					.carousel-text{
 						@include carousel-text-style;
-  						span{
+  						span{ 
   							@include carousel-text-span-style;
   						}
 					}
 				}
 			}
 		}
-			.carousel-pager{
-				@include carousel-pager-style; 
-				a{
-					@include carousel-pager-a-style;
-				}
-				a.carousel-pager-item-active{
-					@include carousel-pager-a-active-style;
-				}
-			}
+			
 		}
 		#portal-breadcrumbs{
 			margin-top:1em;
@@ -595,6 +625,13 @@ body{
 				}
 				span{
 					@include span-style;
+				}
+				.listing-summary{
+					h2{
+						a:hover{
+							color:$font-color-black !important;
+						}
+					}
 				}
 				.option{
 					input {
@@ -734,6 +771,9 @@ body{
 						.field{
 							overflow:auto;
 						}
+						div.formControls{
+							margin:0;
+						}
 						#formfield-form-widgets-location_county,
 						#formfield-form-widgets-location_district,
 						#formfield-form-widgets-beds,
@@ -857,8 +897,12 @@ body{
 			#listing-search{
 				#form{
 					.form-rows{
-						.text-widget,.select-widget{
+						.select-widget{
 							width:100%;
+						}
+						.text-widget{
+							width:97.5%;
+							padding:1%;
 						}
 						.separator{
 							display:none;
@@ -872,6 +916,13 @@ body{
 						}
 						.collapse{
 							visibility: visible;
+						}
+						.formPanel{ 
+							margin:0;
+							padding-top: 5px;
+							.horizontal{
+								display:none;
+							}
 						}
 					}
 				}
@@ -904,6 +955,15 @@ body{
 }
 @media (min-width: 1200px){
 	body{
+		.carousel-pager{
+			@include carousel-pager-style; 
+			a{
+				@include carousel-pager-a-style;
+			}
+			a.carousel-pager-item-active{
+				@include carousel-pager-a-active-style;
+			}
+		}
 		.nav-collapse{
 			width:78%;
 		}
@@ -938,11 +998,21 @@ body{
 		}
 		.container,.container-fluid{
 			#main{
-				.listing-collection-tile .collection-item {
-				    margin-right: 3%;
-				    max-height: 390px;
-				    min-height: 390px;
-				    width: 30%;
+				span9,span12{
+					.listing-collection-tile .collection-item {
+					    margin-right: 3%;
+					    max-height: 390px;
+					    min-height: 390px;
+					    width: 47%;
+					}
+				}
+				.span6{
+					.listing-collection-tile .collection-item {
+					    margin-right: 1%;
+					    max-height: 390px;
+					    min-height: 390px;
+					    width: 49%;
+					}
 				}
 				#left-column.span3{
 					width:25%;
@@ -970,10 +1040,19 @@ body{
 					#search-form{
 						form{ 
 							span.option{
-								width:29%;
+								width:31.5%;
 							}
 							.value-range-widget{
 								width:49%;
+							}
+							.form-rows{
+								#formfield-form-widgets-listing_type{
+									width:100%;
+									padding:0;
+								}
+								.field 	{
+									padding-left: 0;
+								}
 							}
 						}
 					}
@@ -991,6 +1070,15 @@ body{
 }
 @media (min-width: 980px) and (max-width:1199px){
 	body{
+		.carousel-pager{
+			@include carousel-pager-style; 
+			a{
+				@include carousel-pager-a-style;
+			}
+			a.carousel-pager-item-active{
+				@include carousel-pager-a-active-style;
+			}
+		}
 		.nav-collapse{
 			width:78%;
 		}
@@ -1025,11 +1113,21 @@ body{
 		}
 		.container,.container-fluid{
 			#main{
-				.listing-collection-tile .collection-item {
-				    margin-right: 3%;
-				    max-height: 390px;
-				    min-height: 390px;
-				    width: 30%;
+				span9,span12{
+					.listing-collection-tile .collection-item {
+					    margin-right: 3%;
+					    max-height: 390px;
+					    min-height: 390px;
+					    width: 47%;
+					}
+				}
+				.span6{
+					.listing-collection-tile .collection-item {
+					    margin-right: 1%;
+					    max-height: 390px;
+					    min-height: 390px;
+					    width: 49%;
+					}
 				}
 				#left-column.span3{
 					width:25%;
@@ -1059,10 +1157,19 @@ body{
 					#search-form{
 						form{ 
 							span.option{
-								width:29%;
+								width:31.5%;
 							}
 							.value-range-widget{
 								width:49%;
+							}
+							.form-rows{
+								#formfield-form-widgets-listing_type{
+									width:100%;
+									padding:0;
+								}
+								.field 	{
+									padding-left: 0;
+								}
 							}
 						}
 					}
@@ -1080,6 +1187,15 @@ body{
 }
 @media (min-width: 769px) and (max-width: 979px) {
 	body{
+		.carousel-pager{
+			@include carousel-pager-style; 
+			a{
+				@include carousel-pager-a-style;
+			}
+			a.carousel-pager-item-active{
+				@include carousel-pager-a-active-style;
+			}
+		}
 		.socialheader.toolkit{
 			display:none;
 		}
@@ -1114,11 +1230,18 @@ body{
 		}
 		.container,.container-fluid{
 			#main{
-				.listing-collection-tile .collection-item {
-				    margin-right: 3%;
-				    max-height: 390px;
-				    min-height: 390px;
-				    width: 47%;
+				.span9,span12{
+					.listing-collection-tile .collection-item {
+					    margin-right: 3%;
+					    max-height: 390px;
+					    min-height: 390px;
+					    width: 47%;
+					}
+				}
+				.span6{
+					.listing-collection-tile .collection-item {
+					    width: 100%;
+					}
 				}
 				#left-column.span3{
 					width:25%;
@@ -1153,6 +1276,15 @@ body{
 							.value-range-widget{
 								width:49%;
 							}
+							.form-rows{
+								#formfield-form-widgets-listing_type{
+									width:100%;
+									padding:0;
+								}
+								.field 	{
+									padding-left: 0;
+								}
+							}
 						}
 					}
 				}
@@ -1169,6 +1301,15 @@ body{
 }
 @media (min-width: 600px) and (max-width: 768px){
 	body{
+		.carousel-pager{
+			@include carousel-pager-style; 
+			a{
+				@include carousel-pager-a-style;
+			}
+			a.carousel-pager-item-active{
+				@include carousel-pager-a-active-style;
+			}
+		}
 		.socialheader.toolkit{
 			display:none;
 		}
@@ -1232,6 +1373,15 @@ body{
 							.value-range-widget{
 								width:49%;
 							}
+							.form-rows{
+								#formfield-form-widgets-listing_type{
+									width:100%;
+									padding:0;
+								}
+								.field 	{
+									padding-left: 0;
+								}
+							}
 						}
 					}
 				}
@@ -1253,6 +1403,15 @@ body{
 } 
 @media (min-width: 481px) and (max-width: 599px){
 	body{
+		.carousel-pager{
+			@include carousel-pager-style; 
+			a{
+				@include carousel-pager-a-style;
+			}
+			a.carousel-pager-item-active{
+				@include carousel-pager-a-active-style;
+			}
+		}
 		.socialheader.toolkit{
 			display:none;
 		}
@@ -1310,11 +1469,28 @@ body{
 				.listing-summary{
 					#search-form{
 						form{ 
+							#formfield-form-widgets-air_condition,
+							#formfield-form-widgets-pool,
+							#formfield-form-widgets-jacuzzi{
+								span.option{
+									width:10%;
+								}
+							}
 							span.option{
 								width:49%;
 							}
 							.value-range-widget{
 								width:49%;
+							}
+							.form-rows{
+								#formfield-form-widgets-listing_type{
+									width:100%;
+									padding:0;
+								}
+								.field 	{
+									padding-left: 0;
+									width:100%;
+								}
 							}
 						}
 					}
@@ -1337,6 +1513,15 @@ body{
 }
 @media (min-width: 401px) and (max-width: 480px){
 	body{
+		.carousel-pager{
+			@include carousel-pager-style-when-mobile-screen; 
+			a{
+				@include carousel-pager-a-style-when-mobile-screen;
+			}
+			a.carousel-pager-item-active{
+				@include carousel-pager-a-active-style;
+			}
+		}
 		#portal-logo{
 			display: block;
 			margin-left:8px;
@@ -1395,11 +1580,28 @@ body{
 				.listing-summary{
 					#search-form{
 						form{ 
+							#formfield-form-widgets-air_condition,
+							#formfield-form-widgets-pool,
+							#formfield-form-widgets-jacuzzi{
+								span.option{
+									width:10%;
+								}
+							}
 							span.option{
 								width:100%;
 							}
 							.value-range-widget{
 								width:49%;
+							}
+							.form-rows{
+								#formfield-form-widgets-listing_type{
+									width:100%;
+									padding:0;
+								}
+								.field 	{
+									padding-left: 0;
+									width:100%;
+								}
 							}
 						}
 					}
@@ -1422,6 +1624,15 @@ body{
 }
 @media (min-width: 321px) and (max-width: 400px){
 	body{
+		.carousel-pager{
+			@include carousel-pager-style-when-mobile-screen; 
+			a{
+				@include carousel-pager-a-style-when-mobile-screen;
+			}
+			a.carousel-pager-item-active{
+				@include carousel-pager-a-active-style;
+			}
+		}
 		#portal-logo{
 			display: block;
 			margin-left:8px;
@@ -1491,11 +1702,28 @@ body{
 				.listing-summary{
 					#search-form{
 						form{ 
+							#formfield-form-widgets-air_condition,
+							#formfield-form-widgets-pool,
+							#formfield-form-widgets-jacuzzi{
+								span.option{
+									width:10%;
+								}
+							}
 							span.option{
 								width:100%;
 							}
 							.value-range-widget{
 								width:48%;
+							}
+							.form-rows{
+								#formfield-form-widgets-listing_type{
+									width:100%;
+									padding:0;
+								}
+								.field 	{
+									padding-left: 0;
+									width:100%;
+								}
 							}
 						}
 					}
@@ -1518,6 +1746,15 @@ body{
 }
 @media (min-width: 241px) and (max-width: 320px){
 	body{
+		.carousel-pager{
+			@include carousel-pager-style-when-mobile-screen; 
+			a{
+				@include carousel-pager-a-style-when-mobile-screen;
+			}
+			a.carousel-pager-item-active{
+				@include carousel-pager-a-active-style;
+			}
+		}
 		#portal-logo{
 			display: block;
 			margin-left:8px;
@@ -1587,11 +1824,28 @@ body{
 				.listing-summary{
 					#search-form{
 						form{ 
+							#formfield-form-widgets-air_condition,
+							#formfield-form-widgets-pool,
+							#formfield-form-widgets-jacuzzi{
+								span.option{
+									width:10%;
+								}
+							}
 							span.option{
 								width:100%;
 							}
 							.value-range-widget{
 								width:48%;
+							}
+							.form-rows{
+								#formfield-form-widgets-listing_type{
+									width:100%;
+									padding:0;
+								}
+								.field 	{
+									padding-left: 0;
+									width:100%;
+								}
 							}
 						}
 					}
@@ -1614,6 +1868,15 @@ body{
 }
 @media (max-width: 240px) {
 	body{
+		.carousel-pager{
+			@include carousel-pager-style-when-mobile-screen; 
+			a{
+				@include carousel-pager-a-style-when-mobile-screen;
+			}
+			a.carousel-pager-item-active{
+				@include carousel-pager-a-active-style;
+			}
+		}
 		#portal-logo{
 			display: block;
 			margin-left:8px;
@@ -1683,8 +1946,25 @@ body{
 				.listing-summary{
 					#search-form{
 						form{ 
+							#formfield-form-widgets-air_condition,
+							#formfield-form-widgets-pool,
+							#formfield-form-widgets-jacuzzi{
+								span.option{
+									width:10%;
+								}
+							}
 							span.option{
 								width:100%;
+							}
+							.form-rows{
+								#formfield-form-widgets-listing_type{
+									width:100%;
+									padding:0;
+								}
+								.field 	{
+									padding-left: 0;
+									width:100%;
+								}
 							}
 						}
 					}
