@@ -12,12 +12,15 @@ $font-a:1em;
 $font-span:1em;
  
 $no-color:transparent;
+$color-red:red;
+$color-blue:blue;
+$color-green:green;
 
 @mixin container-fluid-header-wrapper-when-min-screen-1200px{
     width:1080px;
 }
 @mixin container-fluid-nav-when-min-screen-1200px{
-	width:1080px;
+    width:1080px;
 }
 @mixin container-fluid-carousel-when-min-screen-1200px{
 	width:100%;
@@ -339,6 +342,26 @@ $no-color:transparent;
 }
 
 body{
+	.palette{ 
+		position: fixed;
+    	top: 100px;
+	    .toggle{
+		    float: right;
+	    }
+	    .inner{
+	    	padding: 15px;
+    		width: 150px;
+	    }
+	}
+	.bg-color-red{
+		background:$color-red !important;
+	}
+	.bg-color-blue{
+		background:$color-blue !important;
+	}
+	.bg-color-green{
+		background:$color-green !important;
+	}
 	font-size:16px;
 	.collapse{
 		height:auto;

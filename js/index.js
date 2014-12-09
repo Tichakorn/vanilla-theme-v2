@@ -62,4 +62,22 @@ $(document).ready(function () {
             normal_screen_porlet();
         }
     });
+
+    $("a.bg-color-red").click(function(){
+        $("#fullscreen-nav").removeAttr('class');
+		$("#fullscreen-nav").addClass("bg-color-red row");
+	});
+	$("a.bg-color-blue").click(function(){
+		$("#fullscreen-nav").removeAttr('class');
+		$("#fullscreen-nav").addClass("bg-color-blue row");
+	});
+	$("a.bg-color-green").click(function(){
+		$("#fullscreen-nav").removeAttr('class');
+		$("#fullscreen-nav").addClass("bg-color-green row");
+	});
+
+    $(".palette .toggle").click(function(){
+        $( ".palette .inner" ).toggle( "slow" );
+    });
+  
 });
